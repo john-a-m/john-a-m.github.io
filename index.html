@@ -1,1 +1,86 @@
-hi
+<pre>
+ruby tutorial
+-------------
+
+environment setup
+-----------------
+curl -sSL https://get.rvm.io | bash -s stable --rails
+mkdir railsintro
+cd railsintro
+vi .rails-version #ruby-2.1.2
+vi .rails-gemset #rails-app
+source /home/adminuser/.rvm/scripts/rvm
+gem install rails
+rails new .
+sudo apt-get install nodejs
+rails g scaffold article name content:text published_on:date
+rake db:migrate
+rails server
+wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+heroku login
+heroku keys:add #generates keys
+git init
+git add .
+git config --global user.email "johnthexiii@gmail.com"
+git commit
+heroku create
+git push heroku master
+bundle install
+
+#change config/routes.rb from
+
+Rails.application.routes.draw do
+  resources :articles
+  
+#to
+
+Rails.application.routes.draw do
+  root to: 'articles#index'
+  resources :articles
+  
+#setting up postgres
+sudo apt-get install postgresql
+sudo apt-get install lib
+sudo apt-get install libpq-dev
+gem install pg
+#edit the Gemfile to have gem 'pg' instead of gem 'sqlite3'
+bundle install
+
+sudo su - postgres
+createuser -s -r adminuser
+rake db:create
+rake db:migrate
+
+#add to app/views/index.html.erb
+
+<%= form_tag articles_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+<% end %>
+
+#add to app/controllers/article_controller.rb
+
+  def index
+    @articles = Article.text_search(params[:query])
+  end
+
+
+
+#add to app/models/articles.rb
+
+class Article < ActiveRecord::Base
+  def self.text_search(query)
+    if query.present?
+      where("to_tsvector('english', name) @@ :q or to_tsvector('english', content) @@ :q", q: query)
+    else
+      scoped
+    end
+  end
+end
+
+#push to bitbucket
+git remote add bitbucket https://johnthexiii@bitbucket.org/johnthexiii/railsintro.git
+git push -u bitbucket --all
+</pre>
