@@ -21,7 +21,7 @@ heroku login
 heroku keys:add #generates keys
 git init
 git add .
-git config --global user.email "johnthexiii@gmail.com"
+git config --global user.email "<user>@gmail.com"
 git commit
 heroku create
 git push heroku master
@@ -81,6 +81,6 @@ class Article < ActiveRecord::Base
 end
 
 #push to bitbucket
-git remote add bitbucket https://johnthexiii@bitbucket.org/johnthexiii/railsintro.git
+git remote add bitbucket https://<user>@bitbucket.org/<user>/railsintro.git
 git push -u bitbucket --all
 </pre>
