@@ -5,7 +5,7 @@ date:   2015-11-28 11:35:07
 categories: meta
 ---
 
-[Here is githubs info on this process][5]
+[Here is githubs info on this process][5]. This tutorial is for a 64 bit windows system.
 
 ##Accounts
 
