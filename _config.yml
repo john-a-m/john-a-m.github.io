@@ -1,0 +1,12 @@
+# Site settings
+title: Procedurally Generated Content
+email: john@eden.ai
+description: > # this means to ignore newlines until "baseurl:"
+  A blog for machine learning and python.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://eden.ai" # the base hostname & protocol for your site
+#twitter_username: jekyllrb
+github_username:  john-a-m
+
+# Build settings
+markdown: kramdown
