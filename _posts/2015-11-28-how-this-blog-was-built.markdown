@@ -5,11 +5,11 @@ date:   2015-11-28 11:35:07
 categories: meta
 ---
 
-[Here is githubs info on this process][5]. This tutorial is for a 64 bit windows system.
+[Here is githubs info on this process][5]. This tutorial is for a 64 bit Windows system.
 
 ##Accounts
 
-get account at pawnmail (they're no longer accepting registrations at this time), or a similar service
+get account at pawnmail, or a similar service
 
 have a github account
 
@@ -25,11 +25,9 @@ have a github account
 
 107.191.103.103 is pawnmail's mx server [more here][1]
 
-more info here
-
 ###Ruby
 
-Get both ruby and the development-kit from [rubyinstaller][2].
+Get both Ruby and the development-kit from [rubyinstaller][2].
 
 Download both the installer and the development-kit
 
@@ -50,13 +48,12 @@ Install python from python.org and make sure python.exe is in your PATH.
 
 create a directory githubusername.github.com, cd into it and run `git init`
 
-add a file `CNAME` put a single line in it `yourhostname.tld`
-
-
+add a file `CNAME` put a single line in it `yourhostname.tld` and add bundler to
+the ruby installation.
 
 	gem install bundler
 
-add a `Gemfile` 
+add a `Gemfile` to the repository with the following lines
 
 	source 'https://rubygems.org'
 	gem 'RedCloth', :platforms => :mswin
